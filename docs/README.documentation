@@ -1,0 +1,31 @@
+Go to the RTcmix web page for lots of documentation and tutorials:
+
+   http://rtcmix.org
+
+
+This distribution contains documentation in the form of man pages
+and html.  These are installed in the directories you specify in 
+makefile.conf.  (Adjust MANDESTDIR and HTMLDESTDIR to taste.)  To see
+the man pages, add the MANDESTDIR to your MANPATH.  In bash, but 
+something like this in your .profile (or wherever you put such things):
+
+   MANPATH="$MANPATH:/usr/local/rtcmix/docs/man"
+
+You can also build PostScript and PDF versions:
+
+   $ cd docs/pod
+   $ make ps
+   $ make pdf
+
+The "syn" command (installed wherever CMIX is installed) gives you
+a brief usage statement for any command it knows about.  (Type
+"syn commandname" at the command line.)
+
+This documentation is not at all complete, especially for instruments.
+
+For information about the bus-routing capability, read
+"README.bus_config" in this directory.
+
+
+John Gibson
+
