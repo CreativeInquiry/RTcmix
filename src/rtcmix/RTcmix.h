@@ -321,6 +321,9 @@ private:
 
 };
 
+#ifdef _WIN32
+typedef void* sig_t;
+#endif
 // handy utility function...
 /* RTtimeit takes a floating point number of seconds (interval) and a pointer
    to a void-returning function and sets up a timer to call that function
