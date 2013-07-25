@@ -122,9 +122,9 @@ public:
 	// These are functions called from the parser via pointers, and are
 	// registered via rt_ug_intro().
 	static double rtsetparams(float*, int, double *);
-#ifdef MAXMSP
+//#ifdef MAXMSP
 	static double mm_rtsetparams(float, int, int, float*, float*);
-#endif
+//#endif
 	static double rtinput(float*, int, double *);
 	static double rtoutput(float*, int, double *);
 	static double set_option(float *, int, double *);

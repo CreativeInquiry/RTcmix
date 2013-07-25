@@ -57,7 +57,6 @@ float *maxmsp_inbuf;
 	BGG ii -- we don't use the *mm_inbuf and *mm_outbuf params for iPhone
 		work; these are passed in through the calls to pulltraverse()
 */
-#if defined(MAXMSP) || defined(IOS)
 double
 RTcmix::mm_rtsetparams(float sr, int nchans, int vecsize, float *mm_inbuf, float *mm_outbuf)
 {
@@ -130,4 +129,3 @@ RTcmix::mm_rtsetparams(float sr, int nchans, int vecsize, float *mm_inbuf, float
 
    return 0;
 }
-#endif
