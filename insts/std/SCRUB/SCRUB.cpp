@@ -211,15 +211,13 @@ void rtprofile()
 }
 #endif
 
-#ifndef MINGW
-inline int max(int x, int y) { return (x >= y) ? x : y; }
-#endif
+inline int MAX(int x, int y) { return (x >= y) ? x : y; }
 
 int SCRUB::Initialize() {
 	fFileChunkStartFrame = _startFrame;
 	fFileChunkEndFrame = _startFrame;
 	fFrameCount = (speed >= 0.0) ?
-		_startFrame + getendsamp() : max(_startFrame, getendsamp());
+		_startFrame + getendsamp() : MAX(_startFrame, getendsamp());
 	PRINT("Initialize: fFrameCount set to %ld\n", fFrameCount);
 	// read in initial frames so that fCurRawFramesIdx is centered
 	int NPastFrames = gkNrRawFrames / 2;

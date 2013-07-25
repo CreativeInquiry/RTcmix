@@ -26,9 +26,7 @@
 #include "DataSet.h"
 #include "setup.h"
 
-#ifndef MINGW
-inline int min(int x, int y) { return (x < y) ? x : y; }
-#endif
+inline int MIN(int x, int y) { return (x < y) ? x : y; }
 
 #undef debug
 
@@ -364,7 +362,7 @@ int LPCPLAY::run()
 	// Samples may have been left over from end of previous run's block
 	if (_leftOver > 0)
 	{
-		int toAdd = min(_leftOver, framesToRun());
+		int toAdd = MIN(_leftOver, framesToRun());
 #ifdef debug
 		printf("using %d leftover samps starting at offset %d\n",
 			   _leftOver, _savedOffset);
@@ -500,7 +498,7 @@ int LPCPLAY::run()
 		float envelope = evp(currentFrame(),_envFun,_envFun,_evals);
 		bmultf(_alpvals, envelope, _counter);
 
-		int sampsToAdd = min(_counter, framesToRun() - n);
+		int sampsToAdd = MIN(_counter, framesToRun() - n);
 
 		/* Write this block to the output buffer. */
 		rtbaddout(_alpvals, sampsToAdd);
@@ -726,7 +724,7 @@ int LPCIN::run()
 	// Samples may have been left over from end of previous run's block
 	if (_leftOver > 0)
 	{
-		int toAdd = min(_leftOver, framesToRun());
+		int toAdd = MIN(_leftOver, framesToRun());
 #ifdef debug
 		printf("using %d leftover samps starting at offset %d\n",
 			   _leftOver, _savedOffset);
@@ -792,7 +790,7 @@ int LPCIN::run()
 		_counter = int(((float)SR/(newpch * /*_perperiod*/ 1.0) ) * .5);
 //		_counter = (RTBUFSAMPS < MAXVALS) ? RTBUFSAMPS : MAXVALS;
 //		_counter = (_counter > (nSamps() - currentFrame())) ? nSamps() - currentFrame() : _counter;
-		_counter = min(_counter, framesToRun() - n);
+		_counter = MIN(_counter, framesToRun() - n);
 				
         if (_counter <= 0)
 			break;
@@ -828,7 +826,7 @@ int LPCIN::run()
 		if (_reson_is_on)
 			bresonz(_alpvals,_rsnetc,_alpvals,_counter);
 
-		int sampsToAdd = min(_counter, framesToRun() - n);
+		int sampsToAdd = MIN(_counter, framesToRun() - n);
 		
 //		printf("\tscaling %d samples by %g\n", sampsToAdd, _ampmlt);
 

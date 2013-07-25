@@ -5,10 +5,11 @@
 #include "JGNoise.h"    
 #include <sys/time.h>
 
-#if defined(MINGW)                              	// for Windows95 or NT
-   #define ONE_OVER_RANDLIMIT 0.00006103516
+#ifdef MINGW                              	// for Windows95 or NT
+	#include <mingw.h>
+	#define ONE_OVER_RANDLIMIT 0.00006103516
 #else                                               // for Linux and SGI
-   #define ONE_OVER_RANDLIMIT 0.00000000093132258
+	#define ONE_OVER_RANDLIMIT 0.00000000093132258
 #endif
 
 
@@ -38,18 +39,15 @@ void JGNoise :: seed(unsigned int aSeed = 0)
       gettimeofday(&tv, NULL);
       aSeed = (unsigned int)tv.tv_usec;
    }
-#if defined(MINGW) 
-   srand(aSeed);
-#else
+   
    srandom(aSeed);
-#endif
 }
 
 
 double JGNoise :: tick()
 {
-#if defined(MINGW)
-   lastOutput = (double) (rand() - 16383);
+#ifdef MINGW
+   lastOutput = (double) (random() - 16383);
 #else
    lastOutput = (double) random() - 1073741823.0;
 #endif

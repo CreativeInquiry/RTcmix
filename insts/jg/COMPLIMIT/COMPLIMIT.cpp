@@ -94,9 +94,7 @@ int COMPLIMIT::usage()
               "[windowsize, detection_type, bypass, inchan, pan])");
 }
 
-#ifndef MINGW
-inline int min(int a, int b) { return (a < b) ? a : b; }
-#endif
+inline int MIN(int a, int b) { return (a < b) ? a : b; }
 
 DetectType COMPLIMIT::getDetectType(double pval)
 {
@@ -159,7 +157,7 @@ int COMPLIMIT::init(double p[], int n_args)
 
    window_frames = int(p[10]);
    if (window_frames == 0) {
-      window_frames = min(DEFAULT_WINDOW_SIZE, RTBUFSAMPS);
+      window_frames = MIN(DEFAULT_WINDOW_SIZE, RTBUFSAMPS);
       rtcmix_advise("COMPLIMIT", "Setting window size to %d frames.", window_frames);
    }
    else if (window_frames > RTBUFSAMPS) {

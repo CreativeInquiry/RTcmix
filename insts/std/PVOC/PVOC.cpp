@@ -19,16 +19,13 @@
 	#define hypotf(x, y) (float) hypot((double)(x), (double)(y))
 	#define atan2f(y, x) (float) atan2((double)(y), (double)(x))
 #endif
-	
 
 const complex zero = { 0., 0. };
 const complex one = { 1., 0. };
 float TWOPI;
 
-#ifndef MINGW
-inline int min(int x, int y) { return (x <= y) ? x : y; }
-inline int max(int x, int y) { return (x >= y) ? x : y; }
-#endif
+inline int MIN(int x, int y) { return (x <= y) ? x : y; }
+inline int MAX(int x, int y) { return (x >= y) ? x : y; }
 
 // static float maxof( float *a, int n )
 // {
@@ -296,7 +293,7 @@ int PVOC::run()
 
 		if (_cachedOutFrames)
 		{
-			int toCopy = min(_cachedOutFrames, outFramesNeeded);
+			int toCopy = MIN(_cachedOutFrames, outFramesNeeded);
 			if (_on > 0)
 			{
 	#ifdef debug
@@ -393,7 +390,7 @@ int PVOC::run()
 			}
  		   // Handle case where last synthesized block extended beyond outFramesNeeded
 
-			int framesToOutput = ::min(outFramesNeeded, I);
+			int framesToOutput = ::MIN(outFramesNeeded, I);
 	#ifdef debug
 			printf("\tbottom of loop. framesToOutput: %d\n", framesToOutput);
 	#endif
@@ -452,7 +449,7 @@ int PVOC::shiftin( float A[], int winLen, int D)
 
 	while (framesToRead)
 	{
-		const int toCopy = min(_cachedInFrames, framesToRead);
+		const int toCopy = MIN(_cachedInFrames, framesToRead);
 #ifdef debug
 		if (toCopy > 0)
 			printf("\tshiftin: copying %d sampframes from input offset %d to A[%d]\n", 
@@ -470,7 +467,7 @@ int PVOC::shiftin( float A[], int winLen, int D)
 			_inReadOffset = _inWriteOffset = 0;
 		while (_cachedInFrames < framesToRead)
 		{
-			int toRead = min(framesToRead, RTBUFSAMPS/inchans);
+			int toRead = MIN(framesToRead, RTBUFSAMPS/inchans);
 #ifdef debug
 			printf("\tshiftin: calling rtgetin for %d sampframes into offset %d\n",
 				  toRead, _inWriteOffset);

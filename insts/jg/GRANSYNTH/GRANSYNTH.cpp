@@ -162,9 +162,7 @@ int GRANSYNTH::configure()
    return _block ? 0 : -1;
 }
 
-#ifndef MINGW
-inline int min(int a, int b) { return a < b ? a : b; }
-#endif
+inline int MIN(int a, int b) { return a < b ? a : b; }
 
 #if 0    // shows how to do single-frame I/O, but we use block I/O instead.
 
@@ -206,7 +204,7 @@ int GRANSYNTH::run()
    // improvement that block I/O offers.
 
    const int frames = framesToRun();
-   int blockframes = min(frames, getSkip());
+   int blockframes = MIN(frames, getSkip());
    int framesdone = 0;
    while (1) {
       if (_branch <= 0) {

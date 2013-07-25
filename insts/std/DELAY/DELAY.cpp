@@ -30,9 +30,7 @@
 #include <rt.h>
 #include <rtdefs.h>
 
-#ifndef MINGW
-inline long max(long x, long y) { return x > y ? x : y; }
-#endif
+inline long MAX(long x, long y) { return x > y ? x : y; }
 
 DELAY::DELAY() : Instrument()
 {
@@ -70,7 +68,7 @@ int DELAY::init(double p[], int n_args)
 	if (deltime <= 0.0)
 		return die("DELAY", "Invalid delay time (%g)", deltime);
 
-	long defaultDelay = max(100L, long(deltime * SR + 0.5));
+	long defaultDelay = MAX(100L, long(deltime * SR + 0.5));
 	delay = new Odelayi(defaultDelay);
 	// This is how we check for memory failure.
 	if (delay->length() == 0)
