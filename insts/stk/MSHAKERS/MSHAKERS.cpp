@@ -21,6 +21,7 @@
       p8 (pan)
 */
 
+#include <Instrument.h>      /* the base class for this instrument */
 #include <Stk.h>
 #include <Shakers.h> // from the stk library
 
@@ -30,7 +31,6 @@
 #include <Ougens.h>
 #include <math.h>
 #include <mixerr.h>
-#include <Instrument.h>      /* the base class for this instrument */
 #include "MSHAKERS.h"         /* declarations for this instrument class */
 #include <rt.h>
 #include <rtdefs.h>

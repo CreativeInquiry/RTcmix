@@ -1,5 +1,6 @@
 // MOVE.C -- implementation of MOVE class
 
+#include "MOVE.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -9,7 +10,6 @@
 #include <rt.h>
 #include <rtdefs.h>
 
-#include "MOVE.h"
 #include "common.h"
 
 #undef debug

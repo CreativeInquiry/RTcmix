@@ -27,11 +27,11 @@
    (with John Gibson <johngibson@virginia.edu>)
    rev. for v4.0, JGG, 7/9/04
 */
+#include <Instrument.h>
 #include <unistd.h>
 #include <stdio.h>
 #include <ugens.h>
 #include <mixerr.h>
-#include <Instrument.h>
 #include <rt.h>
 #include <rtdefs.h>
 #include "REVMIX.h"

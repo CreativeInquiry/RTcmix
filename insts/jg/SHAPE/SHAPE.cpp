@@ -49,11 +49,11 @@
 
    John Gibson <johgibso at indiana dot edu>, 3 Jan 2002; rev for v4, 7/21/04
 */
+#include <Instrument.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <ugens.h>
 #include <math.h>
-#include <Instrument.h>
 #include <PField.h>
 #include "SHAPE.h"
 #include <rt.h>

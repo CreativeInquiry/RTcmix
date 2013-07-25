@@ -1,8 +1,8 @@
+#include <Instrument.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
 #include <ugens.h>
-#include <Instrument.h>
 #include <rt.h>
 #include <rtdefs.h>
 #include <assert.h>

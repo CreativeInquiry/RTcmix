@@ -33,6 +33,7 @@
    Revised by John Gibson, 2/29/00.
    Revised for v4 by JG, 3/27/05.
 */
+#include "TRANS.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <float.h>
@@ -41,7 +42,6 @@
 #include <mixerr.h>
 #include <PField.h>
 #include <Option.h>     // for fastUpdate
-#include "TRANS.h"
 #include <rt.h>
 
 //#define DEBUG

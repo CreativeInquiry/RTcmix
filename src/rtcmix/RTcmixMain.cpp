@@ -6,7 +6,12 @@
 #include <signal.h>
 #include <stdlib.h>
 #include <iostream>
+#ifndef MINGW
 #include <sys/socket.h>
+#else
+#include <winsock2.h>
+#include <ws2tcpip.h>
+#endif
 #include <sys/stat.h>
 #include <sys/types.h>
 #include <unistd.h>
@@ -541,8 +546,12 @@ RTcmixMain::sockit(void *arg)
     /* set up the receive buffer nicely for us */
     optlen = sizeof(char);
     val = sizeof(struct sockdata);
+#ifdef MINGW
+	setsockopt(s, SOL_SOCKET, SO_RCVBUF, (char *) &val, optlen);
+#else
     setsockopt(s, SOL_SOCKET, SO_RCVBUF, &val, optlen);
-
+#endif
+	
     /* set up the socket address */
     sss.sin_family = AF_INET;
     sss.sin_addr.s_addr = INADDR_ANY;
@@ -555,7 +564,11 @@ RTcmixMain::sockit(void *arg)
       perror("bind");
 	  fflush(stdout);
 	  run_status = RT_ERROR;	// Notify inTraverse()
+#ifdef MINGW
+	  Sleep(1);
+#else
 	  sleep(1);
+#endif
 #ifndef MAXMSP
 	  cout << "\n";
 #endif
@@ -758,9 +771,8 @@ RTcmixMain::doload(char *dsoPath)
 
 #ifndef MAXMSP
 // BGG -- this totally cause the maxmsp compile to stop
-	rtcmix_advise("loader", "Loaded %s functions from shared
-		library:\n\t'%s'.\n", (profileLoaded == 3) ? "standard and RT" :
-						   (profileLoaded == 2) ? "RT" : "standard", dsoPath);
+	rtcmix_advise("loader", "Loaded %s functions from shared library:\n\t'%s'.\n",
+		(profileLoaded == 3) ? "standard and RT" : (profileLoaded == 2) ? "RT" : "standard", dsoPath);
 #endif
 
 	return 1;

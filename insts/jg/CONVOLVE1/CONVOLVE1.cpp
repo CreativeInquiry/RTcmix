@@ -38,13 +38,13 @@
    John Gibson, 5/31/05 (based on cmix convolve)
 */
 
+#include "CONVOLVE1.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
 #include <ugens.h>
 #include <Ougens.h>
 #include <PField.h>
-#include "CONVOLVE1.h"
 #include <rt.h>
 #include <rtdefs.h>
 

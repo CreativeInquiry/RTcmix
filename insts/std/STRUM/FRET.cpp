@@ -1,5 +1,5 @@
-#include <ugens.h>
 #include <Instrument.h>
+#include <ugens.h>
 #include "FRET.h"
 #include <rt.h>
 #include <rtdefs.h>

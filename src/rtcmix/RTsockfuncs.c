@@ -4,12 +4,16 @@
 #include <stdarg.h>
 #include <string.h>
 #include <sys/types.h>
-#include <netdb.h>
 #include <errno.h>
 #include <signal.h>
-#include <sys/signal.h>
 #include <sys/time.h>
+#ifdef MINGW
+#include <mingw.h>
+#else
+#include <netdb.h>
+#include <sys/signal.h>
 #include <sys/socket.h>
+#endif
 
 #include <sockdefs.h>
 #include "RTsockfuncs.h"
@@ -36,7 +40,7 @@ int newRTsock(char *ihost, int rtsno) {
 
 	hp = gethostbyname(ihost);
 	sss.sin_family = AF_INET;
-	bcopy(hp->h_addr, &(sss.sin_addr.s_addr), hp->h_length);
+	memcpy(hp->h_addr, &(sss.sin_addr.s_addr), hp->h_length);
 	sss.sin_port = htons(MYPORT+rtsno);
 
 	err = connect(s, (struct sockaddr *)&sss, sizeof(sss));
@@ -63,7 +67,7 @@ int RTsock(char *ihost, int rtsno) {
 
 	hp = gethostbyname(ihost);
 	sss.sin_family = AF_INET;
-	bcopy(hp->h_addr, &(sss.sin_addr.s_addr), hp->h_length);
+	memcpy(hp->h_addr, &(sss.sin_addr.s_addr), hp->h_length);
 	sss.sin_port = htons(MYPORT+rtsno);
 
 	if(connect(s, (struct sockaddr *)&sss, sizeof(sss)) < 0) {

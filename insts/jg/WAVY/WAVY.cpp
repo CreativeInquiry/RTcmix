@@ -31,6 +31,7 @@
 
    John Gibson, 6/15/05
 */
+#include "WAVY.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <float.h>
@@ -38,7 +39,6 @@
 #include <ugens.h>
 #include <Ougens.h>
 #include <PField.h>
-#include "WAVY.h"
 #include <rt.h>
 #include <rtdefs.h>
 #include <assert.h>

@@ -1,7 +1,9 @@
 #ifndef _SOCKDEFS_H_
 #define _SOCKDEFS_H_ 1
 
+#ifndef MINGW
 #include <netinet/in.h>
+#endif
 #include "maxdispargs.h"
 
 #define MAXTEXTARGS ((MAXDISPARGS*sizeof(double))/512)

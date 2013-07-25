@@ -35,11 +35,11 @@
 
    John Gibson <johngibson@virginia.edu>, 2 Feb 2001; rev for v4, 7/11/04
 */
+#include <Instrument.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <ugens.h>
 #include <math.h>
-#include <Instrument.h>
 #include "FREEVERB.h"
 #include <rt.h>
 #include <rtdefs.h>

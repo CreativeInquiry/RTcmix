@@ -1,5 +1,6 @@
 // DMOVE.C -- implementation of DMOVE class
 
+#include "DMOVE.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -10,7 +11,6 @@
 #include <rtdefs.h>
 
 #include <common.h>
-#include "DMOVE.h"
 
 //#define debug
 

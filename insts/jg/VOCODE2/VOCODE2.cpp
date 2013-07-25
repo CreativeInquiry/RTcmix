@@ -84,12 +84,12 @@
 
    John Gibson <johgibso at indiana dot edu>, 6/3/02.
 */
+#include <Instrument.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
 #include <ugens.h>
 #include <mixerr.h>
-#include <Instrument.h>
 #include "VOCODE2.h"
 #include <rt.h>
 #include <rtdefs.h>

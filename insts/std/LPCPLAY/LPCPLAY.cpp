@@ -14,7 +14,7 @@
    p8 = reson bw		
 
 */
-
+#include "LPCPLAY.h"         /* declarations for this instrument class */
 #include <stdio.h>
 #include <stdlib.h>
 #include <ugens.h>
@@ -23,11 +23,12 @@
 #include <rt.h>
 #include <rtdefs.h>
 
-#include "LPCPLAY.h"         /* declarations for this instrument class */
 #include "DataSet.h"
 #include "setup.h"
 
+#ifndef MINGW
 inline int min(int x, int y) { return (x < y) ? x : y; }
+#endif
 
 #undef debug
 

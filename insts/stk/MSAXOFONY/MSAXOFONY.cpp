@@ -28,6 +28,7 @@
       p10 (breath pressure table)
 */
 
+#include <Instrument.h>      /* the base class for this instrument */
 #include <Stk.h>
 #include <Saxofony.h> // from the stk library
 
@@ -37,7 +38,6 @@
 #include <Ougens.h>
 #include <math.h>
 #include <mixerr.h>
-#include <Instrument.h>      /* the base class for this instrument */
 #include "MSAXOFONY.h"         /* declarations for this instrument class */
 #include <rt.h>
 #include <rtdefs.h>

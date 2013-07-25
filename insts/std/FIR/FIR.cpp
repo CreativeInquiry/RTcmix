@@ -10,11 +10,11 @@
 *  p3 (amp) can receive updates.
 *  mono input / mono output only
 */
+#include <Instrument.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <ugens.h>
 #include <mixerr.h>
-#include <Instrument.h>
 #include "FIR.h"
 #include <rt.h>
 #include <rtdefs.h>

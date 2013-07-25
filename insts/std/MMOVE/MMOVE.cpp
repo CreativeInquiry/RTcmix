@@ -1,5 +1,6 @@
 // MMOVE.C -- implementation of MMOVE class
 
+#include "MMOVE.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -11,7 +12,6 @@
 #include <assert.h>
 
 #include <common.h>
-#include "MMOVE.h"
 
 //#define debug
 

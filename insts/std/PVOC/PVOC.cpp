@@ -1,4 +1,5 @@
- #include <stdio.h>
+#include "PVOC.h"
+#include <stdio.h>
 #include <stdlib.h>
 #include <ugens.h>
 #include <math.h>
@@ -9,7 +10,6 @@
 #include <assert.h>
 
 #include "pv.h"
-#include "PVOC.h"
 #include "setup.h"
 #include "PVFilter.h"
 
@@ -25,8 +25,10 @@ const complex zero = { 0., 0. };
 const complex one = { 1., 0. };
 float TWOPI;
 
+#ifndef MINGW
 inline int min(int x, int y) { return (x <= y) ? x : y; }
 inline int max(int x, int y) { return (x >= y) ? x : y; }
+#endif
 
 // static float maxof( float *a, int n )
 // {

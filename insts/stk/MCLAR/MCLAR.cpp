@@ -23,6 +23,7 @@
       p7 (pan)
 */
 
+#include <Instrument.h>      /* the base class for this instrument */
 #include <Stk.h>
 #include <Clarinet.h> // from the stk library
 
@@ -32,7 +33,6 @@
 #include <Ougens.h>
 #include <math.h>
 #include <mixerr.h>
-#include <Instrument.h>      /* the base class for this instrument */
 #include "MCLAR.h"         /* declarations for this instrument class */
 #include <rt.h>
 #include <rtdefs.h>

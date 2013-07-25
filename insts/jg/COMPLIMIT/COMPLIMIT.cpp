@@ -33,12 +33,12 @@
 
    John Gibson <johgibso at indiana dot edu>, 4/21/00; rev. for v4, 6/18/05
 */
+#include <Instrument.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
 #include <float.h>       // DBL_MAX
 #include <ugens.h>
-#include <Instrument.h>
 #include "COMPLIMIT.h"
 #include <rt.h>
 #include <rtdefs.h>
@@ -94,7 +94,9 @@ int COMPLIMIT::usage()
               "[windowsize, detection_type, bypass, inchan, pan])");
 }
 
+#ifndef MINGW
 inline int min(int a, int b) { return (a < b) ? a : b; }
+#endif
 
 DetectType COMPLIMIT::getDetectType(double pval)
 {

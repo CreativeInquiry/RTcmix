@@ -23,12 +23,12 @@
    Created from my and John Gibson's TRANS by Doug Scott
 	<netdscott@netscape.net> 9/3/2000.
 */
+#include "TRANSBEND.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <assert.h>
 #include <ugens.h>
 #include <mixerr.h>
-#include "TRANSBEND.h"
 #include <rt.h>
 
 //#define DEBUG

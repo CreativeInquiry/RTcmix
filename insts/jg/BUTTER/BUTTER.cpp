@@ -51,12 +51,12 @@
 
    John Gibson (johgibso at indiana dot edu), 12/1/01; rev for v4, JGG, 7/24/04
 */
+#include <Instrument.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include <math.h>
 #include <ugens.h>
-#include <Instrument.h>
 #include <PField.h>
 #include "BUTTER.h"
 #include <rt.h>

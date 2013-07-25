@@ -60,10 +60,10 @@
 
    John Gibson (jgg9c@virginia.edu), 9/20/98, RT'd 6/24/99; rev for v4, 7/24/04
 */
+#include <Instrument.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <ugens.h>
-#include <Instrument.h>
 #include <PField.h>
 #include "JCHOR.h"
 #include <rt.h>

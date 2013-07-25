@@ -11,6 +11,7 @@ getsample.c \
 infile.c \
 io.c \
 load_utils.c \
+mingw.c \
 merror.c \
 message.c \
 minout.c \

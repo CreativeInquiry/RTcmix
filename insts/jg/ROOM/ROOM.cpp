@@ -1,7 +1,7 @@
+#include <Instrument.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <ugens.h>
-#include <Instrument.h>
 #include "ROOM.h"
 #include <rt.h>
 #include <rtdefs.h>

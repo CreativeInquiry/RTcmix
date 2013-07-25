@@ -39,11 +39,11 @@
 
                                                 rev for v4, JGG, 7/22/04
 */
+#include <Instrument.h>
 #include <stdlib.h>
 #include <stdio.h>
 #include <math.h>
 #include <ugens.h>
-#include <Instrument.h>
 #include <PField.h>
 #include "WAVESHAPE.h"
 #include <rt.h>

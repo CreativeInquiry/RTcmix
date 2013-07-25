@@ -32,6 +32,7 @@
       p12 (velocity table)
 */
 
+#include "MBANDEDWG.h"         /* declarations for this instrument class */
 #include <Stk.h>
 #include <BandedWG.h> // from the stk library
 
@@ -41,7 +42,6 @@
 #include <Ougens.h>
 #include <math.h>
 #include <float.h>
-#include "MBANDEDWG.h"         /* declarations for this instrument class */
 #include <rt.h>
 #include <rtdefs.h>
 

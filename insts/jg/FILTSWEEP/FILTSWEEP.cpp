@@ -49,11 +49,11 @@
 
    John Gibson (jgg9c@virginia.edu), 2/5/00; rev for v4, JGG, 7/24/04
 */
+#include <Instrument.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
 #include <ugens.h>
-#include <Instrument.h>
 #include "FILTSWEEP.h"
 #include <rt.h>
 #include <rtdefs.h>

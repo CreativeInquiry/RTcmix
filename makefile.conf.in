@@ -173,6 +173,18 @@ ifeq ($(ARCH),FREEBSD)
   SHELL = /bin/sh
   SHLIB_SUFFIX = so
 endif
+ifeq ($(ARCH),MINGW)
+  ARCHFLAGS = -DMINGW $(ARCH_BITFLAGS)
+  ARCH_RTLDFLAGS =
+  CC = gcc
+  CXX = g++ -fpermissive
+  LD = ld
+  MAKE = make
+  INSTALL = cp -f
+  RANLIB = touch
+  SHELL = /bin/sh
+  SHLIB_SUFFIX = so
+endif
 
 INCLUDES = -I. -I$(CMIXDIR)/include
 
@@ -242,6 +254,13 @@ endif
 ifeq ($(ARCH),FREEBSD)
   SYS_LDFLAGS += -pthread -lm -ll
   DSO_LDFLAGS = -export-dynamic $(SYS_LDFLAGS)
+  SHARED_LDFLAGS = -shared -Wl,-soname,$@
+  DYNAMIC_LDFLAGS = $(SHARED_LDFLAGS)
+  DYN = -rdynamic
+endif
+ifeq ($(ARCH),MINGW)
+  SYS_LDFLAGS = -lpthread -lm -ldl
+  DSO_LDFLAGS = $(OPT) $(SYSLIBS)
   SHARED_LDFLAGS = -shared -Wl,-soname,$@
   DYNAMIC_LDFLAGS = $(SHARED_LDFLAGS)
   DYN = -rdynamic

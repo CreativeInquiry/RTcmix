@@ -1,7 +1,7 @@
+#include <Instrument.h>
 #include <stdlib.h>
 #include <stdio.h>
 #include <ugens.h>
-#include <Instrument.h>
 #include "SCULPT.h"
 #include <rt.h>
 #include <rtdefs.h>

@@ -5,16 +5,18 @@
 #define DBUG
 //#define DENORMAL_CHECK
 #include <pthread.h>
-#include <sys/resource.h>
 #include <ctype.h>
 #include <string.h>
 #include <math.h>
 #include <stdio.h>
 #include <unistd.h>
 #include <stdlib.h>
+#include <signal.h>
+#ifndef MINGW
+#include <sys/resource.h>
 #include <sys/socket.h>
 #include <netinet/in.h>
-#include <signal.h>
+#endif
 
 #include "RTcmixMain.h"
 #include "prototypes.h"
@@ -84,7 +86,7 @@ main(int argc, char *argv[], char **env)
    flush_all_underflows_to_zero();
 #endif
 
-	bzero(MMPrint::mm_print_buf, SIZEOF_MMPRINTBUF);
+	memset(MMPrint::mm_print_buf, '\0', SIZEOF_MMPRINTBUF);
 	MMPrint::mm_print_ptr = MMPrint::mm_print_buf;
 
    RTcmixMain app(argc, argv, env);

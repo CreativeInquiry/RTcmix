@@ -59,6 +59,7 @@
 
    John Gibson <johgibso at indiana dot edu>, 2/8/05
 */
+#include "GRANSYNTH.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <float.h>
@@ -66,7 +67,6 @@
 #include <PField.h>
 #include <rt.h>
 #include <rtdefs.h>
-#include "GRANSYNTH.h"
 #include "synthgrainstream.h"
 //#define NDEBUG     // disable asserts
 #include <assert.h>
@@ -162,12 +162,9 @@ int GRANSYNTH::configure()
    return _block ? 0 : -1;
 }
 
-
-inline const int min(const int a, const int b)
-{
-   return a < b ? a : b;
-}
-
+#ifndef MINGW
+inline int min(int a, int b) { return a < b ? a : b; }
+#endif
 
 #if 0    // shows how to do single-frame I/O, but we use block I/O instead.
 

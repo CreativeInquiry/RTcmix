@@ -21,13 +21,13 @@
 
    JGG <johgibso at indiana dot edu>, 3 Jan 2002, rev for v4, 7/11/04
 */
+#include <Instrument.h>
+#include "DECIMATE.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdint.h>
 #include <math.h>
 #include <ugens.h>
-#include <Instrument.h>
-#include "DECIMATE.h"
 #include <rt.h>
 #include <rtdefs.h>
 

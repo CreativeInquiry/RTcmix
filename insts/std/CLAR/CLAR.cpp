@@ -1,6 +1,6 @@
+#include <Instrument.h>
 #include <stdio.h>
 #include <ugens.h>
-#include <Instrument.h>
 #include "CLAR.h"
 #include <rt.h>
 #include <rtdefs.h>

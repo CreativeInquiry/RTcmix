@@ -48,10 +48,10 @@
 
    John Gibson (johgibso at indiana dot edu), 7/21/99; rev for v4, JGG, 7/24/04
 */
+#include <Instrument.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <ugens.h>
-#include <Instrument.h>
 #include <PField.h>
 #include "FLANGE.h"
 #include <rt.h>

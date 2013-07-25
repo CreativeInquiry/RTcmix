@@ -44,12 +44,12 @@
    Based on formulas by Robert Bristow-Johnson ("Audio-EQ-Cookbook") and code
    by Tom St Denis <tomstdenis.home.dhs.org> (see musicdsp.org)
 */
+#include <Instrument.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include <ugens.h>
 #include <math.h>
-#include <Instrument.h>
 #include <PField.h>
 #include "EQ.h"
 #include <rt.h>

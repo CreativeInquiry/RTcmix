@@ -33,11 +33,11 @@
 
    John Gibson <johgibso at indiana dot edu>, 22 May 2002; rev for v4, 7/24/04
 */
+#include <Instrument.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <ugens.h>
 #include <math.h>
-#include <Instrument.h>
 #include "MOOGVCF.h"
 #include <rt.h>
 #include <rtdefs.h>

@@ -123,4 +123,3 @@ Arg::printInline(FILE *stream) const
 	}
 }
 #endif
-

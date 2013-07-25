@@ -50,11 +50,11 @@
 
    John Gibson (johngibson@virginia.edu), 4/15/00; rev for v4, JGG, 7/25/04
 */
+#include <Instrument.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
 #include <ugens.h>
-#include <Instrument.h>
 #include <PField.h>
 #include "JGRAN.h"
 #include <rt.h>

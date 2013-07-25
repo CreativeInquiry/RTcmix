@@ -24,11 +24,11 @@
    cut off prematurely.
                                           rev. for v4.0 by JGG, 7/10/04
 */
+#include <COMBIT.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <ugens.h>
 #include <Ougens.h>
-#include <COMBIT.h>
 #include <rt.h>
 #include <rtdefs.h>
 

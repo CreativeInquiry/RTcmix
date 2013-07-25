@@ -5,8 +5,12 @@
 
 #include "ThreadedAudioDevice.h"
 #include <sys/time.h>
+#ifdef MINGW
+#include <mingw.h> // set/getittimer()
+#else
 #include <sys/resource.h>	// setpriority()
 #include <sys/select.h>
+#endif
 #include <string.h>			// memset()
 #include <stdio.h>
 #include <assert.h>
@@ -33,17 +37,16 @@ static struct itimerval globalTimerVal;
 #endif
 
 ThreadedAudioDevice::ThreadedAudioDevice()
-	  : _device(-1), _thread(0), _frameCount(0),
+	  : _device(-1), _threadCreated(false), _frameCount(0),
 	  _starting(false), _paused(false), _stopping(false), _closing(false)
-{
-}
+{}
 
 ThreadedAudioDevice::~ThreadedAudioDevice()
 {
 	// This code handles the rare case where the child thread is starting
 	// at the same instant that the device is being destroyed.
 	PRINT1("~ThreadedAudioDevice\n");
-	if (starting() && _thread != 0) {
+	if (starting() && _threadCreated) {
 		waitForThread();
 		starting(false);
 	}
@@ -70,6 +73,7 @@ int ThreadedAudioDevice::startThread()
 	if (status < 0) {
 		error("Failed to create thread");
 	}
+	_threadCreated = true;
 	return status;
 }
 
@@ -81,6 +85,7 @@ int ThreadedAudioDevice::doStop()
 		paused(false);
 		waitForThread();
 		starting(false);
+		_threadCreated = false;
 	}
 	return 0;
 }
@@ -95,12 +100,12 @@ int ThreadedAudioDevice::doGetFrameCount() const
 void ThreadedAudioDevice::waitForThread(int waitMs)
 {
 	if (!isPassive()) {
-		assert(_thread != 0);	// should not get called again!
+		assert(_threadCreated);	// should not get called again!
 		PRINT1("ThreadedAudioDevice::waitForThread: waiting for thread to finish\n");
 		if (pthread_join(_thread, NULL) == -1) {
 			PRINT0("ThreadedAudioDevice::doStop: terminating thread!\n");
 			pthread_cancel(_thread);
-			_thread = 0;
+			_threadCreated = false;
 		}
 		PRINT1("\tThreadedAudioDevice::waitForThread: thread done\n");
 	}
@@ -179,8 +184,13 @@ void *ThreadedAudioDevice::_runProcess(void *context)
 	getitimer(ITIMER_PROF, &globalTimerVal);
 #endif
 	ThreadedAudioDevice *device = (ThreadedAudioDevice *) context;
-	if (setpriority(PRIO_PROCESS, 0, -20) != 0)
-	{
+
+#ifdef MINGW
+	// see http://msdn.microsoft.com/en-us/library/windows/desktop/ms686219(v=vs.85).aspx
+	if (SetPriorityClass(GetCurrentProcess(), HIGH_PRIORITY_CLASS) != 0) {
+#else
+	if (setpriority(PRIO_PROCESS, 0, -20) != 0) {
+#endif
 //			perror("ThreadedAudioDevice::_runProcess: Failed to set priority of thread.");
 	}
 	device->starting(false);	// Signal that the thread is now running

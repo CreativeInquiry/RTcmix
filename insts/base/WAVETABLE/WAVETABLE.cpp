@@ -23,11 +23,11 @@
                                                 rev for v4, JGG, 7/12/04
 */
 
+#include <Instrument.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <ugens.h>
 #include <math.h>
-#include <Instrument.h>
 #include <PField.h>
 #include <Option.h>	// fastUpdate
 #include "WAVETABLE.h"

@@ -18,12 +18,12 @@
    SCRUB was written by Doug Scott.  Interpolation code and most of the I/O
    was written by Tobias Kunze-Briseno.
 */
+#include "SCRUB.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <assert.h>
 #include <ugens.h>
 #include <mixerr.h>
-#include "SCRUB.h"
 #include <rt.h>
 #include <math.h>
 #include <string.h>
@@ -211,7 +211,9 @@ void rtprofile()
 }
 #endif
 
+#ifndef MINGW
 inline int max(int x, int y) { return (x >= y) ? x : y; }
+#endif
 
 int SCRUB::Initialize() {
 	fFileChunkStartFrame = _startFrame;
@@ -245,7 +247,9 @@ int SCRUB::Initialize() {
 // is called).
 // Return 0 on success, -1 on failure.
 
+#ifndef MINGW
 inline int min(int x, int y) { return (x <= y) ? x : y; }
+#endif
 
 int SCRUB::ReadRawFrames(int destframe, int nframes) {
   float fromFrame, toFrame;

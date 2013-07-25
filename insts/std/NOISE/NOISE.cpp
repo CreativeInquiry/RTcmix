@@ -17,12 +17,12 @@
 
    JGG <johgibso at indiana dot edu>, 24 Dec 2002, rev. 7/9/04
 */
+#include <Instrument.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <ugens.h>
 #include <math.h>
 #include <mixerr.h>
-#include <Instrument.h>
 #include "NOISE.h"
 #include <rt.h>
 #include <rtdefs.h>

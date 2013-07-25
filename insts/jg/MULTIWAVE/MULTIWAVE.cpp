@@ -19,12 +19,12 @@
 
    John Gibson, 3/9/05
 */
+#include <Instrument.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
 #include <ugens.h>
 #include <Ougens.h>
-#include <Instrument.h>
 #include <PField.h>
 #include "MULTIWAVE.h"
 #include <rt.h>

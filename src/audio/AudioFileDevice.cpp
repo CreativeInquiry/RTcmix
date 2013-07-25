@@ -11,7 +11,7 @@
 #include <assert.h>
 #include <errno.h>
 #include <string.h>
-#if defined(linux) || defined(MACOSX)
+#if defined(linux) || defined(MACOSX) || defined(MINGW)
 #include <unistd.h>
 #endif
 

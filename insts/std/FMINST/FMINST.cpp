@@ -29,10 +29,10 @@
 
                                                 rev for v4, JGG, 7/12/04
 */
+#include <Instrument.h>
 #include <stdlib.h>
 #include <stdio.h>
 #include <ugens.h>
-#include <Instrument.h>
 #include <PField.h>
 #include <Option.h>		// for fastUpdate
 #include "FMINST.h"

@@ -54,10 +54,10 @@
    Based on original Cmix code.  Removal of libf2c.a and f2c.h requirement
    courtesy of Alistair Riddell and Ross Bencina.
 */
+#include <Instrument.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <ugens.h>
-#include <Instrument.h>
 #include "ELL.h"
 #include <rt.h>
 #include <rtdefs.h>

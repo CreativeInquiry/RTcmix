@@ -36,10 +36,10 @@
    Author unknown (probably Brad Garton); rev for v4, JGG, 7/22/04
    [yes it was me -- BGG]
 */
+#include <Instrument.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <ugens.h>
-#include <Instrument.h>
 #include <PField.h>
 #include "AMINST.h"
 #include <rt.h>

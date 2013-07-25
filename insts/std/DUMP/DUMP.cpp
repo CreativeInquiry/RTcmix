@@ -15,12 +15,12 @@
 
    John Gibson (johgibso at indiana dot edu), 11/25/04
 */
+#include <Instrument.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
 #include <float.h>
 #include <ugens.h>
-#include <Instrument.h>
 #include "DUMP.h"
 #include <rt.h>
 #include <rtdefs.h>

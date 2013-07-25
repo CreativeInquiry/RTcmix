@@ -6,6 +6,8 @@
 // to build based on the passed-in descriptor.
 
 #include <ugens.h>
+#include <cstddef>
+#include <cstdio>
 
 #ifdef LINUX
 #include "SinglePortOSSAudioDevice.h"

@@ -22,15 +22,17 @@
 
                                           rev. for v4.0 by JGG, 7/10/04
 */
+#include "DELAY.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <ugens.h>
 #include <Ougens.h>
-#include "DELAY.h"
 #include <rt.h>
 #include <rtdefs.h>
 
+#ifndef MINGW
 inline long max(long x, long y) { return x > y ? x : y; }
+#endif
 
 DELAY::DELAY() : Instrument()
 {

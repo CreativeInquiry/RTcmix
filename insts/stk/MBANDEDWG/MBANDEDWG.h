@@ -1,5 +1,6 @@
 #include <Instrument.h>
 #include <Ougens.h>
+#include "../stklib/BandedWG.h"
 
 class MBANDEDWG : public Instrument {
 	int nargs, branch, preset;

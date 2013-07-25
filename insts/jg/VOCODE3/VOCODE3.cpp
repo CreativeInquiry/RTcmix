@@ -74,12 +74,11 @@
    John Gibson <johgibso at indiana dot edu>, 6/19/05.
 */
 
+#include "VOCODE3.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <float.h>
-#include <ugens.h>
 #include <Ougens.h>
-#include "VOCODE3.h"
 #include <rt.h>
 #include <rtdefs.h>
 

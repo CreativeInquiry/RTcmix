@@ -2,10 +2,10 @@
    See ``AUTHORS'' for a list of contributors. See ``LICENSE'' for
    the license to this software and for a DISCLAIMER OF ALL WARRANTIES.
 */
+#include "heap.h"
 #ifndef IOS
 #include <iostream>
 #endif
-#include "heap.h"
 #include <ugens.h> // for rtcmix_warn()
 
 using namespace std;

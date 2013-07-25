@@ -19,11 +19,11 @@
       p9     input channel number   [optional]
       p10    control rate for trajectory   [optional]
 */
+#include <Instrument.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
 #include <ugens.h>
-#include <Instrument.h>
 #include "MROOM.h"
 #include <rt.h>
 #include <rtdefs.h>

@@ -1,12 +1,12 @@
 // Copyright (C) 2005 John Gibson.  See ``LICENSE'' for the license to this
 // software and for a DISCLAIMER OF ALL WARRANTIES.
 
+#include <Instrument.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
 #include <ugens.h>
 #include <Ougens.h>
-#include <Instrument.h>
 #include <rt.h>
 #include <rtdefs.h>
 //#define NDEBUG

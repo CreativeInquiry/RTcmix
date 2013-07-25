@@ -19,11 +19,11 @@
 
    John Gibson <johgibso at indiana dot edu>, 7/10/05
 */
+#include "STRUMFB.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <ugens.h>
 #include <Ougens.h>
-#include "STRUMFB.h"
 #include <rt.h>
 #include <rtdefs.h>
 

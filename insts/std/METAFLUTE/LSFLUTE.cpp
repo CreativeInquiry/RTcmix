@@ -1,6 +1,6 @@
+#include <Instrument.h>
 #include <ugens.h>
 #include <mixerr.h>
-#include <Instrument.h>
 #include "LSFLUTE.h"
 #include <rt.h>
 #include <rtdefs.h>

@@ -2,6 +2,7 @@
    See ``AUTHORS'' for a list of contributors. See ``LICENSE'' for
    the license to this software and for a DISCLAIMER OF ALL WARRANTIES.
 */
+#include <Instrument.h>
 #ifndef IOS
 #include <iostream>
 #endif
@@ -9,7 +10,6 @@
 #include "dbug.h"
 #include <rtdefs.h>
 #include <RTcmix.h>
-#include <Instrument.h>
 #include <ugens.h> // for rtcmix_warn()
 
 using namespace std;

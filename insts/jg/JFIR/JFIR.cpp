@@ -43,10 +43,10 @@
    John Gibson (jgg9c@virginia.edu), 7/3/99; rev for v4, JGG, 7/24/04
    Filter design code adapted from Bill Schottstaedt's Snd.
 */
+#include <Instrument.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <ugens.h>
-#include <Instrument.h>
 #include <PField.h>
 #include "JFIR.h"
 #include <rt.h>

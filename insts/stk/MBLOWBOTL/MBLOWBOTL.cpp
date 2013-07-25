@@ -21,6 +21,7 @@
       p7 (breath pressure table)
 */
 
+#include <Instrument.h>      /* the base class for this instrument */
 #include <Stk.h>
 #include <BlowBotl.h> // from the stk library
 
@@ -30,8 +31,7 @@
 #include <Ougens.h>
 #include <math.h>
 #include <mixerr.h>
-#include <Instrument.h>      /* the base class for this instrument */
-#include "MBLOWBOTL.h"         /* declarations for this instrument class */
+#include "MBLOWBOTL.h"       /* declarations for this instrument class */
 #include <rt.h>
 #include <rtdefs.h>
 

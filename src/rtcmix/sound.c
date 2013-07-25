@@ -28,6 +28,10 @@
 */
 
 #define SOUND
+
+#ifdef MINGW
+#include <mingw.h>
+#endif
 #include "prototypes.h"
 #include <ugens.h>
 #include <sndlibsupport.h>
@@ -41,7 +45,9 @@
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <sys/time.h>
+#ifndef MINGW
 #include <sys/times.h>
+#endif
 #include <string.h>
 #include <Option.h>
 
@@ -855,7 +861,7 @@ _readit(int fno)
 		}
 	}
 	if(((play_is_on==2) && !maxread) || ((play_is_on==3) && (status[fno])))
-	      bzero(sndbuf[fno],nbytes);  /* clean buffer out if not readin */
+	      memset(sndbuf[fno],'\0',nbytes);  /* clean buffer out if not readin */
 
 	/* Swap input buffer */
  	if(maxread && swap_bytes[fno]) {

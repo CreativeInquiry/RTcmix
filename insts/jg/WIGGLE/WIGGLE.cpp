@@ -68,12 +68,12 @@
 
    John Gibson <johgibso at indiana dot edu>, 12/4/01; rev. for v4, 6/17/05.
 */
+#include <Instrument.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
 #include <float.h>
 #include <ugens.h>
-#include <Instrument.h>
 #include "WIGGLE.h"
 #include <rt.h>
 #include <rtdefs.h>

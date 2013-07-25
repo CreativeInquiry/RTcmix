@@ -17,13 +17,13 @@
    TRANS3 was written by Doug Scott.
    Revised for v4 by JG, 2/11/06.
 */
+#include "TRANS3.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <float.h>
 #include <assert.h>
 #include <ugens.h>
 #include <mixerr.h>
-#include "TRANS3.h"
 #include <rt.h>
 
 //#define DEBUG

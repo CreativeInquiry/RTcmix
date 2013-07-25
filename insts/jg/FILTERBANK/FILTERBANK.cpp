@@ -32,12 +32,12 @@
    John Gibson <johgibso at gmail dot com>, 25 Feb 2007.
    Based on IIR and MULTEQ.
 */
+#include <Instrument.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include <ugens.h>
 #include <Ougens.h>
-#include <Instrument.h>
 #include <PField.h>
 #include "FILTERBANK.h"
 #include <rt.h>

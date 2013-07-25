@@ -26,11 +26,11 @@
    Derived from Doug Scott's TRANSBEND by Ivica Ico Bukvic <ico at fuse.net>
    (2001-2)
 */
+#include "MOCKBEND.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <assert.h>
 #include <ugens.h>
-#include "MOCKBEND.h"
 #include <rt.h>
 
 //#define DEBUG

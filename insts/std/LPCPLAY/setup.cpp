@@ -1,12 +1,12 @@
 // setup.C -- Other Minc routines used to configure an LPCPLAY session
 
+#include <RTcmix.h>
 #include <ugens.h>
 #include <stdio.h>
 #include <string.h>
 #include "setup.h"
 #include "lp.h"
 #include "DataSet.h"
-#include <RTcmix.h>
 
 static double lowthresh, highthresh;
 static float maxdev;	// lpcplay, set from outside

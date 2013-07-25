@@ -28,6 +28,7 @@
       p11 (vibrato wavetable) [function 4 should be present if unused]
 */
 
+#include <Instrument.h>      /* the base class for this instrument */
 #include <Stk.h>
 #include <Bowed.h> // from the stk library
 
@@ -37,7 +38,6 @@
 #include <Ougens.h>
 #include <math.h>
 #include <mixerr.h>
-#include <Instrument.h>      /* the base class for this instrument */
 #include "MBOWED.h"         /* declarations for this instrument class */
 #include <rt.h>
 #include <rtdefs.h>

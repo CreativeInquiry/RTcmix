@@ -13,11 +13,11 @@
 	BGG 1/2004
 */
 
+#include <Instrument.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <ugens.h>
 #include <mixerr.h>
-#include <Instrument.h>
 #include "MAXMESSAGE.h"
 #include <rt.h>
 #include <rtdefs.h>

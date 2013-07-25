@@ -65,13 +65,13 @@
 
    John Gibson, 11/13/04
 */
+#include <Instrument.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include <math.h>
 #include <float.h>   // for DBL_MAX
 #include <ugens.h>
-#include <Instrument.h>
 #include <PField.h>
 #include "NPAN.h"
 #include <rt.h>

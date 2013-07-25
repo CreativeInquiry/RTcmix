@@ -2,9 +2,9 @@
    See ``AUTHORS'' for a list of contributors. See ``LICENSE'' for
    the license to this software and for a DISCLAIMER OF ALL WARRANTIES.
 */
+#include <Instrument.h>
 #include "heap.h"
 #include <lock.h>
-#include <Instrument.h>
 #ifndef IOS
 #include <iostream>
 #endif

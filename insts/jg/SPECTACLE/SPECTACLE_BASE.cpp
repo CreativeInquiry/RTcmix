@@ -38,26 +38,26 @@ SPECTACLE_BASE :: ~SPECTACLE_BASE()
 int SPECTACLE_BASE :: make_windows()
 {
    switch (window_type) {
-      case Hamming:
+      case HAMMING:
          for (int i = 0; i < window_len; i++)
             anal_window[i] = synth_window[i] = 0.54 - 0.46
                                           * cos(TWO_PI * i / (window_len - 1));
          break;
-      case Hanning:
+      case HANNING:
          return die(instname(), "Hanning window not implemented.");
          break;
-      case Rectangle:
+      case RECTANGLE:
 //FIXME: is this right?
          for (int i = 0; i < window_len; i++)
             anal_window[i] = synth_window[i] = 1.0;
          break;
-      case Triangle:
+      case TRIANGLE:
          return die(instname(), "Triangle window not implemented.");
          break;
-      case Blackman:
+      case BLACKMAN:
          return die(instname(), "Blackman window not implemented.");
          break;
-      case Kaiser:
+      case KAISER:
          return die(instname(), "Kaiser window not implemented.");
          break;
    }
@@ -147,26 +147,26 @@ double * SPECTACLE_BASE :: resample_functable(double *table, int oldsize,
 WindowType SPECTACLE_BASE :: getWindowType(double pval)
 {
    int intval = int(pval);
-   WindowType type = Hamming;
+   WindowType type = HAMMING;
 
    switch (intval) {
       case 0:
-         type = Hamming;
+         type = HAMMING;
          break;
       case 1:
-         type = Hanning;
+         type = HANNING;
          break;
       case 2:
-         type = Rectangle;
+         type = RECTANGLE;
          break;
       case 3:
-         type = Triangle;
+         type = TRIANGLE;
          break;
       case 4:
-         type = Blackman;
+         type = BLACKMAN;
          break;
       case 5:
-         type = Kaiser;
+         type = KAISER;
          break;
       default:
          die(instname(), "Invalid window type %d\n.", intval);

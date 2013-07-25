@@ -10,10 +10,15 @@
 
 #include "RTcmix.h"
 
+#ifdef MINGW
+#include "mingw.h"
+#else
+#include <sys/resource.h>	
+#endif
+
 //#define DBUG
 //#define DENORMAL_CHECK
 #include <pthread.h>
-#include <sys/resource.h>
 #include <stdio.h>
 #include <stdarg.h>
 #include <stdlib.h>
@@ -181,7 +186,11 @@ RTcmix::init_globals(bool fromMain, const char *defaultDSOPath)
       ToAuxPlayList[i] =-1;     /* The playback order for AUX buses */
    }
 
+#ifdef MINGW
+	max_input_fds = _getmaxstdio();
+#else
 	max_input_fds = sysconf(_SC_OPEN_MAX);
+#endif
 	if (max_input_fds == -1)	// call failed
 		max_input_fds = 128;		// what we used to hardcode
 	else
@@ -561,4 +570,3 @@ void RTtimeit(float interval, sig_t func)
 	setitimer(ITIMER_REAL, &itv, NULL);
 	signal(SIGALRM, func);
 }
-

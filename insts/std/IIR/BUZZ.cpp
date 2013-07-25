@@ -36,11 +36,11 @@
    table must have exactly 1024 values.
                                           rev. for v4.0 by JGG, 7/10/04
 */
+#include <Instrument.h>
 #include <stdio.h>
 #include <math.h>
 #include <ugens.h>
 #include <Ougens.h>
-#include <Instrument.h>
 #include <PField.h>
 #include <Option.h>	// fastUpdate
 #include "BUZZ.h"

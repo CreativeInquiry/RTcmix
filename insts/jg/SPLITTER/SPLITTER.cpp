@@ -18,10 +18,10 @@
 
    John Gibson <johgibso at indiana dot edu>, 1/22/06
 */
+#include "SPLITTER.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <ugens.h>
-#include "SPLITTER.h"
 #include <rt.h>
 #include <rtdefs.h>
 

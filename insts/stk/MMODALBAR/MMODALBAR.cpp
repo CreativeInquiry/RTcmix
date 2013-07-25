@@ -30,6 +30,7 @@
 		p8 (amplitude envelope table)
 */
 
+#include <Instrument.h>      /* the base class for this instrument */
 #include <Stk.h>
 #include <ModalBar.h> // from the stk library
 
@@ -39,7 +40,6 @@
 #include <Ougens.h>
 #include <math.h>
 #include <mixerr.h>
-#include <Instrument.h>      /* the base class for this instrument */
 #include "MMODALBAR.h"         /* declarations for this instrument class */
 #include <rt.h>
 #include <rtdefs.h>

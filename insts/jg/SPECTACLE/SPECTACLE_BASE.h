@@ -1,9 +1,9 @@
+#include <Instrument.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
 #include <ugens.h>
 #include <mixerr.h>
-#include <Instrument.h>
 #include <rt.h>
 #include <rtdefs.h>
 #include <assert.h>
@@ -29,12 +29,12 @@
 #endif
 
 typedef enum {
-   Hamming = 0,
-   Hanning,
-   Rectangle,
-   Triangle,
-   Blackman,
-   Kaiser
+   HAMMING = 0,
+   HANNING,
+   RECTANGLE,
+   TRIANGLE,
+   BLACKMAN,
+   KAISER
 } WindowType;
 
 class SPECTACLE_BASE : public Instrument {

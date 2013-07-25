@@ -1,5 +1,6 @@
 #include <Instrument.h>
 #include <math.h>
+#include <ugens.h>
 
 class Oequalizer;
 class Obalance;

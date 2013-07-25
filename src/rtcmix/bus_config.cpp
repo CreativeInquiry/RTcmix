@@ -2,6 +2,7 @@
    See ``AUTHORS'' for a list of contributors. See ``LICENSE'' for
    the license to this software and for a DISCLAIMER OF ALL WARRANTIES.
 */
+#include "BusSlot.h"
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
@@ -9,7 +10,6 @@
 #include <assert.h>
 #include <ugens.h>
 #include <bus.h>
-#include "BusSlot.h"
 #include <RTcmix.h>
 #include "prototypes.h"
 #include "InputFile.h"

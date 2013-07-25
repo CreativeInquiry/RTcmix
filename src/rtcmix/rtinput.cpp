@@ -25,6 +25,9 @@
 #ifdef LINUX
    #include <fcntl.h>
 #endif /* LINUX */
+#ifdef MINGW
+#include <mingw.h>
+#endif
 
 /* code that lets user specify buses for input sources */
 //#define INPUT_BUS_SUPPORT

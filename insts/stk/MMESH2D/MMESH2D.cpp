@@ -19,6 +19,7 @@
       p9 (pan)
 */
 
+#include "MMESH2D.h"         /* declarations for this instrument class */
 #include <Stk.h>
 #include <Mesh2D.h> // from the stk library
 #include <stdio.h>
@@ -26,7 +27,6 @@
 #include <ugens.h>
 #include <Ougens.h>
 #include <math.h>
-#include "MMESH2D.h"         /* declarations for this instrument class */
 #include <rt.h>
 #include <rtdefs.h>
 

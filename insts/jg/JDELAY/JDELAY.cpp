@@ -39,11 +39,11 @@
   
    John Gibson (jgg9c@virginia.edu), 6/23/99; rev for v4, 7/21/04
 */
+#include <Instrument.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
 #include <ugens.h>
-#include <Instrument.h>
 #include "JDELAY.h"
 #include <rt.h>
 #include <rtdefs.h>

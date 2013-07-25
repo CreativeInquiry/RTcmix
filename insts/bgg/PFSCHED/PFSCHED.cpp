@@ -18,9 +18,8 @@
 	BGG, 12/2012 -- fixed de-queuing problem, changed to PFBusdata approach
 */
 
-
-#include <stdlib.h>
 #include <Instrument.h>
+#include <stdlib.h>
 #include <ugens.h>
 #include <PField.h>
 #include <PFBusData.h>
@@ -28,7 +27,7 @@
 #include <rt.h>
 #include <rtdefs.h>
 #include <stdio.h>
-#include <string.h> // for bzero()
+#include <string.h> // for memset()
 
 // these are to enable dynamic maketable() construction
 #include "../../../src/include/maxdispargs.h"
@@ -165,8 +164,8 @@ int PFSCHED::makedyntable()
 
 int PFSCHED::configure()
 {
-	bzero((void *)outbuf, (RTBUFSAMPS * NCHANS)*sizeof(BUFTYPE));
-   return 0;
+	memset((void *)outbuf, '\0', (RTBUFSAMPS * NCHANS)*sizeof(BUFTYPE));
+	return 0;
 }
 
 

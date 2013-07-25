@@ -14,10 +14,11 @@
 
 	rev for v4, JGG, 7/9/04
 */
+
+#include <Instrument.h>
 #include <unistd.h>
 #include <stdio.h>
 #include <ugens.h>
-#include <Instrument.h>
 #include <PField.h>
 #include <Option.h>	// for fastUpdate
 #include <rt.h>

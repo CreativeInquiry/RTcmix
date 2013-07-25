@@ -14,6 +14,8 @@
 #include <sys/endian.h>
 #elif defined(FREEBSD)
 #include <machine/endian.h>
+#elif defined(MINGW)
+// no endian.h on Win
 #else
 #error "This platform is not supported by sndlibsupport.h"
 #endif

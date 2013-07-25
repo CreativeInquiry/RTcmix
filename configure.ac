@@ -31,6 +31,9 @@ case "$host" in
    *-*-freebsd*)
       ARCH=FREEBSD
       ;;
+   *-mingw*)
+	  ARCH=MINGW
+	  ;;
    *)
       ARCH=LINUX
       ;;

@@ -20,13 +20,12 @@
    Jenny Bernard <bernarjf at email dot uc dot edu>, 12/7/05
 */
 
+#include "PHASER.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <ugens.h>
-#include <Ougens.h>
 #include <rt.h>
 #include <rtdefs.h>
-#include "PHASER.h"
 
 using std::vector;
 

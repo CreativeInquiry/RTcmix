@@ -9,7 +9,41 @@
 
 #include "load_utils.h"
 
-#if (defined(MACOSX) && !defined(JAGUAR)) || defined(LINUX)
+#ifdef MINGW
+// Win wrapper from http://src.chromium.org/svn/trunk/src/third_party/mesa/MesaLib/src/mesa/main/dlopen.c
+
+#include <windows.h>
+
+void *
+find_dso(const char *loadPath)
+{
+	return LoadLibraryA(loadPath);
+}
+
+void *
+find_symbol(void *dso, const char *symbol)
+{
+   return GetProcAddress(dso, symbol);
+}
+
+int
+unload_dso(void *dso)
+{
+	return FreeLibrary(dso);
+}
+
+static char errorMsgBuf[256]; // should be enough, right?
+
+// from http://msdn.microsoft.com/en-us/library/windows/desktop/ms680582(v=vs.85).aspx
+const char *get_dso_error()
+{
+	DWORD dw = GetLastError();
+	FormatMessage(FORMAT_MESSAGE_FROM_SYSTEM | FORMAT_MESSAGE_IGNORE_INSERTS,
+        NULL, dw, MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT), (LPSTR) &errorMsgBuf, 0, NULL);
+	return errorMsgBuf;
+}
+
+#elif (defined(MACOSX) && !defined(JAGUAR)) || defined(LINUX)
 
 #include <dlfcn.h>
 

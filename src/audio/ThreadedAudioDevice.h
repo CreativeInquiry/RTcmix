@@ -8,7 +8,9 @@
 
 #include "AudioDeviceImpl.h"
 #include <pthread.h>
+#ifndef MINGW
 #include <sys/select.h>
+#endif
 
 class ThreadedAudioDevice : public AudioDeviceImpl {
 protected:
@@ -49,6 +51,7 @@ private:
 	int			_device;
 	fd_set		_rfdset, _wfdset;
 	pthread_t	_thread;
+	bool		_threadCreated;
 	int			_frameCount;
 	bool		_starting;
 	bool		_paused;

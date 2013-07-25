@@ -46,10 +46,10 @@
    rev for v4, JGG, 7/22/04
 	added default sine wavetable if gen slot or PField is NULL -- BGG 1/2/12
 */
+#include <Instrument.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <ugens.h>
-#include <Instrument.h>
 #include <PField.h>
 #include "AM.h"
 #include <rt.h>

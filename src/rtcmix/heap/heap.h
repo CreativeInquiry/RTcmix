@@ -1,8 +1,8 @@
 #ifndef _HEAP_H_
 #define _HEAP_H_ 1
 
-#include <rt_types.h>
 #include <Lockable.h>
+#include <rt_types.h>
 
 class Instrument;
 

@@ -29,13 +29,13 @@
       variable clip from Laurent de Soras, via musicdsp.org;
       waveshaping from Bram de Jong, via musicdsp.org
 */
+#include <Instrument.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
 #include <ugens.h>
 #include <Ougens.h>
 #include <objlib.h>
-#include <Instrument.h>
 #include "DISTORT.h"
 #include <rt.h>
 #include <rtdefs.h>

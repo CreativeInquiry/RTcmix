@@ -45,12 +45,12 @@
    RT'd and spruced up a bit by John Gibson (jgg9c@virginia.edu), 6/24/99
    rev for v4, 7/11/04
 */
+#include <Instrument.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
 #include <ugens.h>
 #include <mixerr.h>
-#include <Instrument.h>
 #include "REVERBIT.h"
 #include <rt.h>
 #include <rtdefs.h>

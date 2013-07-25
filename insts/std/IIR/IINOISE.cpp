@@ -27,10 +27,10 @@
       changed from "NOISE" to "IINOISE", BGG 5/20/2012
 
 */
+#include <Instrument.h>
 #include <stdio.h>
 #include <ugens.h>
 #include <Ougens.h>
-#include <Instrument.h>
 #include <PField.h>
 #include <Option.h>	// fastUpdate
 #include "IINOISE.h"

@@ -23,10 +23,10 @@
 
                                           rev. for v4.0 by JGG, 7/10/04
 */
+#include <Instrument.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <ugens.h>
-#include <Instrument.h>
 #include "PANECHO.h"
 #include <rt.h>
 #include <rtdefs.h>
