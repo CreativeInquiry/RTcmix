@@ -39,14 +39,6 @@ int setitimer(int type, struct itimerval *in, struct itimerval *out);
 
 int mkstemp(char *temp);
 
-long int random(void) {
-	return rand();
-}
-
-void srandom(unsigned int seed) {
-	srand(seed);
-}
-
 // sys/times.h replacement
 
 /* Structure describing CPU time used by a process and its children.  */
