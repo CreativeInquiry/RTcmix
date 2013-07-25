@@ -63,11 +63,15 @@ static inline int is_timeval_eq(const struct timeval *i1, const struct timeval *
 	return i1->tv_sec == i2->tv_sec && i1->tv_usec == i2->tv_usec;
 }
 
+// type is ignored
 int getitimer(int type, struct itimerval *cur) {
 	// not implemented yet...
+	//cur->it_internal = 
+	//cur->it_value =
 	return 0;
 }
 
+// type is ignored
 int setitimer(int type, struct itimerval *in, struct itimerval *out) {
 	static const struct timeval zero;
 	static int atexit_done;
