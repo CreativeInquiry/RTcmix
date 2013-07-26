@@ -6,6 +6,10 @@
 
 #ifdef MINGW
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 #include <windows.h>
 #include <winsock2.h>
 #include <ws2tcpip.h>
@@ -14,7 +18,7 @@
 #include <errno.h>
 #include <sys/timeb.h>
 
-#define S_IFLNK    0120000 /* Symbolic link */
+#define S_IFLNK    0120000 // Symbolic link
 #define S_ISLNK(x) (((x) & S_IFMT) == S_IFLNK)
 	
 #define SIGHUP 1
@@ -41,22 +45,32 @@ int mkstemp(char *temp);
 
 // sys/times.h replacement
 
-/* Structure describing CPU time used by a process and its children.  */
+// Structure describing CPU time used by a process and its children
 struct tms
   {
-    clock_t tms_utime;          /* User CPU time.  */
-    clock_t tms_stime;          /* System CPU time.  */
+    clock_t tms_utime;          // User CPU time
+    clock_t tms_stime;          // System CPU time
 
-    clock_t tms_cutime;         /* User CPU time of dead children.  */
-    clock_t tms_cstime;         /* System CPU time of dead children.  */
+    clock_t tms_cutime;         // User CPU time of dead children
+    clock_t tms_cstime;         // System CPU time of dead children
   };
 
-/* Store the CPU time used by this process and all its
-   dead children (and their dead children) in BUFFER.
-   Return the elapsed real time, or (clock_t) -1 for errors.
-   All times are in CLK_TCKths of a second.  */
+// Store the CPU time used by this process and all its
+// dead children (and their dead children) in BUFFER.
+// Return the elapsed real time, or (clock_t) -1 for errors.
+// All times are in CLK_TCKths of a second.
 clock_t times (struct tms *__buffer);
 
+// from http://tech.groups.yahoo.com/group/mingw32/message/1345
+int fsync(int fd);
+
+// from http://www.radiance-online.org/pipermail/radiance-dev/2011-April/001121.html
+double drand48(void);
+
+#ifdef __cplusplus
+}
 #endif
+
+#endif // MINGW
 
 #endif // _MINGW_H_

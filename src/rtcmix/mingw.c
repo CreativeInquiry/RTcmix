@@ -107,15 +107,23 @@ int mkstemp(char *temp) {
 
 static FILETIME times_ft[6];
 
+// implemented following http://linux.die.net/man/2/times
 clock_t times(struct tms *__buffer) {
 	
-	// http://msdn.microsoft.com/en-us/library/windows/desktop/ms684929(v=vs.85).aspx
-	// this returns both user and kernel time together,
-	// so we just put it into tms_utime
-	QueryProcessCycleTime(GetCurrentProcess(), __buffer->tms_utime);
+	// http://msdn.microsoft.com/en-us/library/windows/desktop/ms683223(v=vs.85).aspx
+	ULARGE_INTEGER ft[4];
+	GetProcessTimes(GetCurrentProcess(),
+		(LPFILETIME) &ft[0], // process creation time
+		(LPFILETIME) &ft[1], // process exit time
+		(LPFILETIME) &ft[2], // process time in kernel mode (100 nanosecond units)
+		(LPFILETIME) &ft[3]); // process time in user mode (100 nanosecond units)
 	
-	// should probably set these with something ...
-	__buffer->tms_stime = 0;  // System CPU time
+	// convert 100 ns units to # clock ticks using
+	// 10,000,000 ns units in 1 sec % CLOCKS_PER_SEC
+	__buffer->tms_utime = (ft[2].QuadPart * CLOCKS_PER_SEC) / 10000000; // User CPU time
+	__buffer->tms_stime = (ft[3].QuadPart * CLOCKS_PER_SEC) / 10000000;  // System CPU time
+	
+	// should probably set these with something?
 	__buffer->tms_cutime = 0; // User CPU time of dead children
 	__buffer->tms_cstime = 0; // System CPU time of dead children
 
@@ -126,6 +134,14 @@ clock_t times(struct tms *__buffer) {
 		return 0;
 	}
 	return ticks->QuadPart;
+}
+
+int fsync(int fd) {
+  return (FlushFileBuffers ((HANDLE) _get_osfhandle (fd))) ? 0 : -1;
+}
+ 
+double drand48(void) {
+	return (rand()*(1./RAND_MAX));
 }
 
 #endif // MINGW

@@ -1065,7 +1065,13 @@ m_clean(float p[], int n_args) /* a fast clean of file, after header */
 		rtcmix_warn("CMIX", "bad sflseek in clean\n");
 		closesf();
 	}
+#ifdef MINGW
+	// no %11 in Win libc, have to use %I64 instead:
+	// http://stackoverflow.com/questions/13590735/printf-long-long-int-in-c-with-gcc?
+	printf("Clean %I64d bytes\n",(long long)todo);
+#else
 	printf("Clean %lld bytes\n",(long long)todo);
+#endif
 	while(todo) {
 		nwrite = (todo > nbytes) ? nbytes : todo;
 		if(segment) {
