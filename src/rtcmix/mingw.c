@@ -139,9 +139,5 @@ clock_t times(struct tms *__buffer) {
 int fsync(int fd) {
   return (FlushFileBuffers ((HANDLE) _get_osfhandle (fd))) ? 0 : -1;
 }
- 
-double drand48(void) {
-	return (rand()*(1./RAND_MAX));
-}
 
 #endif // MINGW

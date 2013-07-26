@@ -64,9 +64,6 @@ clock_t times (struct tms *__buffer);
 // from http://tech.groups.yahoo.com/group/mingw32/message/1345
 int fsync(int fd);
 
-// from http://www.radiance-online.org/pipermail/radiance-dev/2011-April/001121.html
-double drand48(void);
-
 #ifdef __cplusplus
 }
 #endif

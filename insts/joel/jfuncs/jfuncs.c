@@ -1,10 +1,16 @@
-#include <mingw.h>
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
 #include <assert.h>
 #include <ugens.h>
 #include <math.h>
+
+#ifdef MINGW
+// from http://www.radiance-online.org/pipermail/radiance-dev/2011-April/001121.html
+double drand48(void) {
+	return (rand()*(1./RAND_MAX));
+}
+#endif
   
 #define DEBUG
 
