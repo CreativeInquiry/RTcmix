@@ -103,7 +103,7 @@ extern "C" {
 int
 rtcmixmain()	// BGG mm -- now called this for max/msp
 {
-	bzero(MMPrint::mm_print_buf, SIZEOF_MMPRINTBUF);
+	memset(MMPrint::mm_print_buf, '\0', SIZEOF_MMPRINTBUF);
 	MMPrint::mm_print_ptr = MMPrint::mm_print_buf;
 
 // BGG no argc and argv in max/msp version mm
@@ -155,7 +155,7 @@ char *get_print()
 
 void reset_print()
 {
-	bzero(MMPrint::mm_print_buf, SIZEOF_MMPRINTBUF);
+	memset(MMPrint::mm_print_buf, '\0', SIZEOF_MMPRINTBUF);
 	MMPrint::mm_print_ptr = MMPrint::mm_print_buf;
 }
 

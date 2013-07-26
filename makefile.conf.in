@@ -31,7 +31,8 @@ BUILDTYPE = STANDALONE
 # if selecting "OPENFRAMEWORKS" then one of the OF_TYPEs has to be uncommented
 #BUILDTYPE = OPENFRAMEWORKS
 #OF_TYPE = OSXAPP
-
+#OF_TYPE = WINAPP
+#OF_TYPE = LINUXAPP
 
 # Uncomment this if building a binary package.
 #PKG = TRUE
@@ -178,6 +179,14 @@ ifeq ($(ARCH),MINGW)
   ARCH_RTLDFLAGS =
   CC = gcc
   CXX = g++ -fpermissive
+  
+  ifeq ($(BUILDTYPE), OPENFRAMEWORKS)
+    ifeq ($(OF_TYPE), WINAPP)
+      ARCHFLAGS = -DMINGW -DMAXMSP -DOPENFRAMEWORKS -fno-common -m32
+    #  CC = g++
+    endif
+  endif
+  
   LD = ld
   MAKE = make
   INSTALL = cp -f

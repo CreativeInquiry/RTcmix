@@ -368,6 +368,12 @@ ifeq ($(BUILDTYPE), OPENFRAMEWORKS)
   ifeq ($(OF_TYPE), OSXAPP)
 	OFLIBNAME = librtcmix.a
   endif
+  ifeq ($(OF_TYPE), WINAPP)
+    OFLIBNAME = librtcmix.a
+  endif
+  ifeq ($(OF_TYPE), LINUXAPP)
+    OFLIBNAME = librtcmix.a
+  endif
 MIX: $(MAIN_OBJS) $(M_O) $(LIBS) $(PROFILE_O)
 	$(RM) $(OFLIBNAME)
 	ar rv $(OFLIBNAME) $(CPPOBJS) $(COBJS) $(GENOBJS) $(MIX_INST) \
