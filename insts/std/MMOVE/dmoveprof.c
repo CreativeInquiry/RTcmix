@@ -1,4 +1,6 @@
 #include <ugens.h>
+#include "msetup.h"
+#include "path.h"
 
 int
 profile()

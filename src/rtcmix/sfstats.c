@@ -31,7 +31,7 @@ sfstats(int fd)
 
 	cp = getsfcode(&sfh,SF_MAXAMP);
 	if (cp) { 
-		bcopy(cp + sizeof(SFCODE), (char *) &sfm, sizeof(SFMAXAMP));
+		memcpy(cp + sizeof(SFCODE), (char *) &sfm, sizeof(SFMAXAMP));
 		printf("\nMAXAMP structure found, containing:\n");
 		printf("\tchannel #\tmaxamp\tsample #\n");
 		for (n = 0; n <= sfchans(&sfh); n++) {
@@ -40,7 +40,7 @@ sfstats(int fd)
 	}
 	cp = getsfcode(&sfh,SF_COMMENT);
 	if (cp) {
-		bcopy(cp + sizeof(SFCODE), (char *) &sfcm, ((SFCODE *)cp)->bsize);
+		memcpy(cp + sizeof(SFCODE), (char *) &sfcm, ((SFCODE *)cp)->bsize);
 		printf("\nSFCOMMENT structure found, containing:\n");
 		printf("  %s\n\n",&sfcomm(&sfcm,0));
 	}

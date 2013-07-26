@@ -1,6 +1,6 @@
+#include "strums.h"
 #include <math.h>
 #include <ugens.h>
-#include "strums.h"
 
 float strum(float xin, strumq *q) 
 

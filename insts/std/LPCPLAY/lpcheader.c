@@ -7,7 +7,9 @@
 #include "lpcheader.h"
 
 #ifdef MAXMSP
-#include <CoreFoundation/CoreFoundation.h>
+	#if defined(MACOSX) || defined(IOS)
+	#include <CoreFoundation/CoreFoundation.h>
+	#endif
 #endif
 
 LPHEADER analheader;
@@ -24,10 +26,12 @@ checkForHeader(int afd, int *nPoles, float sr)
 	else lseek(afd, 0, 0);	/* back to beginning */
 
 #ifdef MAXMSP
+	#if defined(MACOSX) || defined(IOS)
 	if (CFByteOrderGetCurrent() == CFByteOrderLittleEndian) {
 		magic[0] = CFSwapInt32BigToHost(magic[0]);
 		magic[1] = CFSwapInt32BigToHost(magic[1]);
 	}
+	#endif
 #endif
 
 	if(magic[1] == LP_MAGIC) {	/* has header */
@@ -38,12 +42,14 @@ checkForHeader(int afd, int *nPoles, float sr)
 		}
 
 #ifdef MAXMSP
+	#if defined(MACOSX) || defined(IOS)
 		if (CFByteOrderGetCurrent() == CFByteOrderLittleEndian) {
 			analheader.headersize = CFSwapInt32BigToHost(analheader.headersize);
 			analheader.lpmagic = CFSwapInt32BigToHost(analheader.lpmagic);
 			analheader.npoles = CFSwapInt32BigToHost(analheader.npoles);
 			analheader.nvals = CFSwapInt32BigToHost(analheader.nvals);
 		}
+	#endif
 #endif
 
 		rtcmix_advise("dataset", "This is a csound-type data file with header.");

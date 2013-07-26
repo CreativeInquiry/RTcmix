@@ -1,4 +1,14 @@
 #include <ugens.h>
+#include "../../insts/std/IIR/cfuncs.h"
+#include "../../insts/std/LPCPLAY/setup.h"
+#include "../../insts/std/MOVE/setup.h"
+#include "../../insts/std/MOVE/path.h"
+#include "../../insts/std/PVOC/setup.h"
+#include "../../insts/jg/ELL/ellipse.h"
+#include "../../insts/jg/MROOM/timeset.h"
+#include "../../insts/jg/ROOM/roomset.h"
+#include "../../insts/joel/jfuncs/jfuncs.h"
+#include "../../insts/joel/tuning/tuning.h"
 
 /* this is for RT instruments to link to in order to resolve the
    profile symbol.  In non-rt instrtuments this function is used

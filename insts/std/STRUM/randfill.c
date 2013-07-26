@@ -1,6 +1,6 @@
+#include "strums.h"
 #include <math.h>
 #include <ugens.h>
-#include "strums.h"
 
 extern void squisher(int squish, strumq *q);
 

@@ -1,7 +1,7 @@
+#include "delayq.h"
 #define maxdl 14000
 #include <math.h>
 #include <ugens.h>
-#include "delayq.h"
 
 float delay(float xin, delayq *q) 
  /* simple interpolating delay line, uses structure as set up by delayset */

@@ -26,6 +26,7 @@
 	         soundio.c or soundio.m due to platform-specific stuff -DS
 	6/99 -- many changes to accommodate sndlib support, etc.  -JGG
 */
+#include "sound.h"
 
 #define SOUND
 
@@ -193,17 +194,18 @@ double m_open(float *p, short n_args, double *pp)
 		peakoff[fno] = 0; /* default to peakcheckon when opening file*/
 		punch[fno] = 0; /* default to no punch when opening file*/
 	}
+	// weird '(int (*)())' cast required here to compile this file with g++
 	if(sfclass(&sfdesc[fno]) == SHORT) {
-		addoutpointer[fno] = _iaddout;
-		layoutpointer[fno] = _ilayout;
-		wipeoutpointer[fno] = _iwipeout;
-		getinpointer[fno] = _igetin;
+		addoutpointer[fno] = (int (*)()) _iaddout;
+		layoutpointer[fno] = (int (*)()) _ilayout;
+		wipeoutpointer[fno] = (int (*)()) _iwipeout;
+		getinpointer[fno] = (int (*)()) _igetin;
 	}
 	else 			        {   
-		addoutpointer[fno] = _faddout;
-		layoutpointer[fno] = _flayout;
-		wipeoutpointer[fno] = _fwipeout;
-		getinpointer[fno] = _fgetin;
+		addoutpointer[fno] = (int (*)()) _faddout;
+		layoutpointer[fno] = (int (*)()) _flayout;
+		wipeoutpointer[fno] = (int (*)()) _fwipeout;
+		getinpointer[fno] = (int (*)()) _fgetin;
 	}
 
 	if(!SR()) set_SR(sfsrate(&sfdesc[fno]));	
@@ -1065,7 +1067,13 @@ m_clean(float p[], int n_args) /* a fast clean of file, after header */
 		rtcmix_warn("CMIX", "bad sflseek in clean\n");
 		closesf();
 	}
+#ifdef MINGW
+	// no %11 in Win libc, have to use %I64 instead:
+	// http://stackoverflow.com/questions/13590735/printf-long-long-int-in-c-with-gcc?
+	printf("Clean %I64d bytes\n",(long long)todo);
+#else
 	printf("Clean %lld bytes\n",(long long)todo);
+#endif
 	while(todo) {
 		nwrite = (todo > nbytes) ? nbytes : todo;
 		if(segment) {

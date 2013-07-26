@@ -1,3 +1,4 @@
+#include "ellipse.h"
 #include <stdio.h>
 #include <ugens.h>
 #include "elldefs.h"
@@ -5,7 +6,6 @@
 
 #define VERBOSE 0      /* print stuff during filter design (in setell) */
 
-double ellset(float p[], int n_args);
 int get_nsections(void);
 int ellpset(EllSect [], float *);
 float ellipse(float, int, EllSect [], float);

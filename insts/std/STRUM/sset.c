@@ -1,7 +1,7 @@
+#include "strums.h"
 #include <stdio.h>
 #include <math.h>
 #include <ugens.h>
-#include "strums.h"
 
 void sset(float SR, float freq, float tf0, float tNy, strumq *q) 
 

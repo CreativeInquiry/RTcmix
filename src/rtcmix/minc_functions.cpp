@@ -1,3 +1,4 @@
+//#include "minc_functions.h"
 #include "globals.h"
 #include <stdio.h>
 #include <sys/file.h>

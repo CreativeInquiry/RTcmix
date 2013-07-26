@@ -1,12 +1,12 @@
 /* infile.c -- datafile name-setting command for use with gen1. D.A.S. 9/89
 */
 
+#include "globals.h"
 #include <stdio.h>
 #include <sys/file.h>
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <ugens.h>
-#include "globals.h"
 
 double
 m_infile(float *p, short n_args, double *pp) 

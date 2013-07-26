@@ -19,14 +19,20 @@ void increment_users();
 void decrement_users();
 int check_users();
 
+#ifdef __cplusplus
 extern "C" {
+#endif
+
 double m_space(float p[], int);
 double m_mikes(float p[], int);
 double m_mikes_off(float p[], int);
 double m_oldmatrix(float p[], int);
 double m_matrix(float p[], int);
 double m_set_attenuation_params(float p[], int);
+
+#ifdef __cplusplus
 }
+#endif
 
 #endif	// _MSETUP_H_
 

@@ -1,7 +1,7 @@
+#include "delayq.h"
 #include <stdio.h>
 #include <math.h>
 #include <ugens.h>
-#include "delayq.h"
 
 void delayset(float SR, float freq, delayq *q) 
  /* Sets up structure for simple interpolating delay line, delay.c.

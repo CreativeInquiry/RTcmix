@@ -23,13 +23,13 @@ find_dso(const char *loadPath)
 void *
 find_symbol(void *dso, const char *symbol)
 {
-   return GetProcAddress(dso, symbol);
+   return (void*) GetProcAddress((HINSTANCE) dso, symbol);
 }
 
 int
 unload_dso(void *dso)
 {
-	return FreeLibrary(dso);
+	return FreeLibrary((HMODULE) dso);
 }
 
 static char errorMsgBuf[256]; // should be enough, right?

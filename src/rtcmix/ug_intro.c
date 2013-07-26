@@ -1,5 +1,11 @@
-#include	"ugens.h"
+#include "ugens.h"
 #include <ug_intro.h>
+#include "sound.h"
+#include "sfprint.h"
+#include "m_system.h"
+#include "sfcopy.h"
+#include "io.h"
+#include "minc_functions.h"
 
 extern void rt_ug_intro();
 
@@ -45,16 +51,28 @@ ug_intro()
 	UG_INTRO_DOUBLE_RETURN("bus_exists", bus_exists);
 	UG_INTRO_DOUBLE_RETURN("bus_link", bus_link);
 	UG_INTRO_DOUBLE_RETURN("getPFval", getPFval);
+	
+	// sound
 	UG_INTRO("makegen", makegen);
 	UG_INTRO("open",m_open);
 	UG_INTRO("peakoff",peak_off);
 	UG_INTRO("punch",punch_on);
 	UG_INTRO("sfclean",m_clean);
+	
+	// sfprint
 	UG_INTRO("sfprint",sfprint);
+	
+	// m_system
 	UG_INTRO("system",m_system);
+	
+	// sfcopy
 	UG_INTRO("sfcopy",sfcopy);
+	
+	// io
 	UG_INTRO("input",m_input);
 	UG_INTRO("output",m_output);
+	
+	//
 	UG_INTRO("cpspch",m_cpspch);
 	UG_INTRO("pchcps",m_pchcps);
  	UG_INTRO("pchoct",m_pchoct);
@@ -97,8 +115,11 @@ ug_intro()
 	UG_INTRO("min",m_min);
 	UG_INTRO("exit",m_exit);
 	UG_INTRO("info",m_info);
+	
+	// m_infile
  	UG_INTRO("infile", m_infile);
- 	UG_INTRO("sampfunc",m_sampfunc);
+ 	
+	UG_INTRO("sampfunc",m_sampfunc);
  	UG_INTRO("sampfunci",m_sampfunci);
  	UG_INTRO("getpch",m_getpch);
  	UG_INTRO("getamp",m_getamp);

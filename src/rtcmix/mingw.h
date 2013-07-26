@@ -12,7 +12,7 @@
 
 #include <sys/time.h>
 #include <errno.h>
-#include <sys/timeb.h>
+//#include <sys/timeb.h>
 
 #define S_IFLNK    0120000 /* Symbolic link */
 #define S_ISLNK(x) (((x) & S_IFMT) == S_IFLNK)
@@ -56,6 +56,9 @@ struct tms
    Return the elapsed real time, or (clock_t) -1 for errors.
    All times are in CLK_TCKths of a second.  */
 clock_t times (struct tms *__buffer);
+
+// from http://tech.groups.yahoo.com/group/mingw32/message/1345
+int fsync(int fd);
 
 #endif
 

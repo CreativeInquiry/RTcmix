@@ -12,12 +12,6 @@
 #define SHAREDLIBDIR "."
 #endif
 
-extern "C" {
-int profile();
-double set_filter(float *, int, double *);
-double init_filter(float *, int, double *);
-}
-
 static const int maxFilters = 8;
 
 FilterCreateFunction	g_filterCtors[maxFilters];	// available filter creators

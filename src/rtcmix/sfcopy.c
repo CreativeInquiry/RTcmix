@@ -1,6 +1,7 @@
 /* fast file-to-file copy */
 /* p0=input fno, p1=output fno, p2=inputskip, p3=output skip, p4=dur */
 
+#include <mingw.h>
 #include "ugens.h"
 #include "sfheader.h"
 #include <stdio.h>

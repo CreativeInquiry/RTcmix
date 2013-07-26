@@ -1,5 +1,5 @@
-#include <ugens.h>
 #include "delayq.h"
+#include <ugens.h>
 
 void delayclean(delayq *q)
 /* clean out (or initialize) delay line for delay, delayset */

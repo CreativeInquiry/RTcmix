@@ -2,6 +2,8 @@
 
 #ifdef MINGW
 
+#include <winbase.h>
+
 #include <stdio.h>
 #include <fcntl.h>
 #include <signal.h>
@@ -73,7 +75,7 @@ int getitimer(int type, struct itimerval *cur) {
 
 // type is ignored
 int setitimer(int type, struct itimerval *in, struct itimerval *out) {
-	static const struct timeval zero;
+	static const struct timeval zero = {0, 0};
 	static int atexit_done;
 
 	if (out != NULL)
@@ -112,7 +114,7 @@ clock_t times(struct tms *__buffer) {
 	// http://msdn.microsoft.com/en-us/library/windows/desktop/ms684929(v=vs.85).aspx
 	// this returns both user and kernel time together,
 	// so we just put it into tms_utime
-	QueryProcessCycleTime(GetCurrentProcess(), __buffer->tms_utime);
+	//QueryProcessCycleTime(GetCurrentProcess(), __buffer->tms_utime);
 	
 	// should probably set these with something ...
 	__buffer->tms_stime = 0;  // System CPU time
@@ -126,6 +128,10 @@ clock_t times(struct tms *__buffer) {
 		return 0;
 	}
 	return ticks->QuadPart;
+}
+
+int fsync(int fd) {
+	return (FlushFileBuffers ((HANDLE) _get_osfhandle (fd))) ? 0 : -1;
 }
 
 #endif // MINGW
