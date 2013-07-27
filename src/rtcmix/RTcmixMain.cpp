@@ -565,9 +565,9 @@ RTcmixMain::sockit(void *arg)
 	  fflush(stdout);
 	  run_status = RT_ERROR;	// Notify inTraverse()
 #ifdef MINGW
-	  Sleep(1);
+	  Sleep(1000); // ms
 #else
-	  sleep(1);
+	  sleep(1); // s
 #endif
 #ifndef MAXMSP
 	  cout << "\n";
