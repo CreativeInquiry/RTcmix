@@ -95,6 +95,13 @@ ifeq ($(ARCH),LINUX)
   ARCH_RTLDFLAGS = -Wl,-rpath $(LIBDIR)
   CC = gcc
   CXX = g++ -Wno-deprecated
+
+  ifeq ($(BUILDTYPE), OPENFRAMEWORKS)
+    ifeq ($(OF_TYPE), LINUXAPP)
+      ARCHFLAGS = -DLINUX -DMAXMSP -DIOS -DOPENFRAMEWORKS -fno-common -m32
+    endif
+  endif
+
   LD = ld
   MAKE = make
   INSTALL = cp -f
@@ -183,7 +190,6 @@ ifeq ($(ARCH),MINGW)
   ifeq ($(BUILDTYPE), OPENFRAMEWORKS)
     ifeq ($(OF_TYPE), WINAPP)
       ARCHFLAGS = -DMINGW -DMAXMSP -DIOS -DOPENFRAMEWORKS -fno-common -m32
-    #  CC = g++
     endif
   endif
   
