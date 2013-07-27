@@ -182,7 +182,7 @@ ifeq ($(ARCH),MINGW)
   
   ifeq ($(BUILDTYPE), OPENFRAMEWORKS)
     ifeq ($(OF_TYPE), WINAPP)
-      ARCHFLAGS = -DMINGW -DMAXMSP -DOPENFRAMEWORKS -fno-common -m32
+      ARCHFLAGS = -DMINGW -DMAXMSP -DIOS -DOPENFRAMEWORKS -fno-common -m32
     #  CC = g++
     endif
   endif

@@ -10,8 +10,10 @@
 #include "lp.h"
 
 
-#if defined(MAXMSP) && (defined(MACOSX) || defined(IOS))
-#include <CoreFoundation/CoreFoundation.h>
+#ifdef MAXMSP
+	#if (defined(MACOSX) || defined(IOS)) && !(defined(MINGW) || defined(LINUX))
+	#include <CoreFoundation/CoreFoundation.h>
+	#endif
 // from src/rtcmix/byte_routines.h
 #define byte_reverse4(data)                                    \
     { char c, *t; t = (char *) data;                           \
@@ -107,7 +109,7 @@ DataSet::getFrame(float frameno, float *pCoeffs)
 #ifdef MAXMSP
 		swap1 = _array[i];
 		swap2 = _array[i+_framsize];
-	#if defined(MACOSX) || defined(IOS)
+	#if (defined(MACOSX) || defined(IOS)) && !(defined(MINGW) || defined(LINUX))
 		if (CFByteOrderGetCurrent() == CFByteOrderLittleEndian) {
 			byte_reverse4(&swap1);
 			byte_reverse4(&swap2);

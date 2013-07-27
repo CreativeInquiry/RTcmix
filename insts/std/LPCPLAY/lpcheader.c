@@ -6,7 +6,7 @@
 #include "lp.h"
 #include "lpcheader.h"
 
-#if defined(MAXMSP) && (defined(MACOSX) || defined(IOS))
+#if defined(MAXMSP) && ((defined(MACOSX) || defined(IOS)) && !(defined(MINGW) || defined(LINUX)))
 #include <CoreFoundation/CoreFoundation.h>
 #endif
 
@@ -23,7 +23,7 @@ checkForHeader(int afd, int *nPoles, float sr)
 	}
 	else lseek(afd, 0, 0);	/* back to beginning */
 
-#if defined(MAXMSP) && (defined(MACOSX) || defined(IOS))
+#if defined(MAXMSP) && ((defined(MACOSX) || defined(IOS)) && !(defined(MINGW) || defined(LINUX)))
 	if (CFByteOrderGetCurrent() == CFByteOrderLittleEndian) {
 		magic[0] = CFSwapInt32BigToHost(magic[0]);
 		magic[1] = CFSwapInt32BigToHost(magic[1]);
@@ -37,7 +37,7 @@ checkForHeader(int afd, int *nPoles, float sr)
 			return -1;
 		}
 
-#if defined(MAXMSP) && (defined(MACOSX) || defined(IOS))
+#if defined(MAXMSP) && ((defined(MACOSX) || defined(IOS)) && !(defined(MINGW) || defined(LINUX)))
 		if (CFByteOrderGetCurrent() == CFByteOrderLittleEndian) {
 			analheader.headersize = CFSwapInt32BigToHost(analheader.headersize);
 			analheader.lpmagic = CFSwapInt32BigToHost(analheader.lpmagic);

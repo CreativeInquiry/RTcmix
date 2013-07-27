@@ -64,6 +64,9 @@ clock_t times (struct tms *__buffer);
 // from http://tech.groups.yahoo.com/group/mingw32/message/1345
 int fsync(int fd);
 
+// stubs
+static inline int fork(void) { errno = ENOSYS; return -1; }
+
 #ifdef __cplusplus
 }
 #endif
