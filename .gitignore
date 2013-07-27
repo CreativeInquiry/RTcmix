@@ -11,7 +11,6 @@ config.h.in~
 config.log
 config.status
 include/*.h
-CVS
 autom4te.cache
 src/conf/conf.tab.cpp
 src/conf/conf.tab.hpp
@@ -21,4 +20,8 @@ src/parser/minc/y.tab.c
 src/parser/minc/y.tab.h
 
 # temp files
-*~
+*~i
+
+# osx
+*.DS_Store
+*.dSYM
