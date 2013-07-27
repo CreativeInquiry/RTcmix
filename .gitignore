@@ -19,3 +19,6 @@ src/conf/lex.conf.c
 src/parser/minc/lex.yy.c
 src/parser/minc/y.tab.c
 src/parser/minc/y.tab.h
+
+# temp files
+*~
